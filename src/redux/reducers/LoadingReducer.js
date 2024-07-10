@@ -1,7 +1,8 @@
 const initialState = {
-    isLoading: false,
-}
 
+  isLoading: false,
+
+}
 export const loadingReducer = (state = initialState, action) => {
   switch (action.type) {
 

@@ -5,14 +5,14 @@ export default function UserLoginTemplate({ Component, ...restParams }) {
   const { Sider, Content, Header, Footer } = Layout;
   const [{width, height}, setSize] = useState({width: window.innerWidth, height: window.innerHeight});
 
-  useEffect = () => {
+  useEffect(() => {
     window.onresize = () => {
       setSize({
         width: window.innerWidth,
         height: window.innerHeight,
       })
     }
-  }
+  }, [])
 
   return (
     <>

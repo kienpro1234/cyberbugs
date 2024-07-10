@@ -1,5 +1,6 @@
 import { USER_LOGIN } from "../../util/constants/settingSystem";
-import { USERLOGIN } from "../constants/Cyberbugs/CyberbugsConst";
+import { SEND_SEARCHED_USER, USERLOGIN } from "../constants/Cyberbugs/CyberbugsConst";
+import { GET_USER_BY_PROJECT_ID } from "../constants/Cyberbugs/UserConst";
 
 let usLogin = {}
 
@@ -8,7 +9,10 @@ if (localStorage.getItem(USER_LOGIN)){
 }
 
 const stateDefault = {
-    userLogin: usLogin
+    userLogin: usLogin,
+    searchedUser: [],
+    arrUser: [], //arr user cho option của thẻ select bên create form 
+
 }
 
 export const UserCyberBugsReducer = (state = stateDefault, action) => {
@@ -17,6 +21,15 @@ export const UserCyberBugsReducer = (state = stateDefault, action) => {
             state.userLogin = action.userLogin;
             return {...state}
         }
+
+        case SEND_SEARCHED_USER: {
+            return {...state, searchedUser: action.listSearchedUser}
+        }
+
+        case GET_USER_BY_PROJECT_ID: {
+            return {...state, arrUser: action.arrUser}
+        }
+
         default: return state
     }
 }

@@ -10,11 +10,11 @@ import { withFormik } from "formik";
 import * as Yup from "yup";
 import { connect } from "react-redux";
 import { singinCyberbugsAction } from "../../../redux/actions/CyberbugsAction";
+import { NavLink } from "react-router-dom";
 
 
 function LoginCyberBugs(props) {
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } = props;
-  console.log(errors)
   return (
     <form onSubmit={handleSubmit} className="container">
       <div
@@ -62,6 +62,13 @@ function LoginCyberBugs(props) {
         >
           Login
         </Button>
+        <div
+          className="mt-3 d-flex flex-row text-start"
+          style={{ minWidth: "400px", fontSize: "20px" }}
+        >
+          <p className="me-4">Don't have an account ?</p>
+          <NavLink to={"/register"}>Sign Up</NavLink>
+        </div>
         <div className="mt-3">
           <Button
             style={{ backgroundColor: "rgb(59,89,142)" }}
@@ -91,7 +98,8 @@ const userLoginFormWithFormik = withFormik({
     email: Yup.string().required("Email is required").email("Email is invalid"),
     password: Yup.string()
       .min(3, "Password must have min 6 characters")
-      .max(20, "Password must have max 12 characters"),
+      .max(20, "Password must have max 12 characters")
+      .required("password is required!"),
   }),
 
   handleSubmit: (values, { props, setSubmitting }) => {

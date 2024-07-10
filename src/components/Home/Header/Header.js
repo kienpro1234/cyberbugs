@@ -53,6 +53,21 @@ export default function Header() {
                   Demo Hoc
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink className="nav-link headerNavLink" to="/cyberbugs">
+                  cyberbugs
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link headerNavLink" to="/learningreactspring">
+                  learning react spring
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link headerNavLink" to="/demoDragDropDND">
+                  Demo Drag Drop
+                </NavLink>
+              </li>
             </ul>
             <form className="d-flex my-2 my-lg-0">
               <input
